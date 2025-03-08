@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     *{
+        box-sizing: border-box;
+     }
+
+     body{
+        display: flex;
+        padding: 0;
+        margin: 0;
+        background-color: gainsboro;
+        flex-direction: column;
+        gap: 10px;
+     }
+
+     nav {
+      padding: 10px;
+      color: white;
+      font-size: 25px;
+      font-weight: bold;
+      font-family: monospace;
+      background-color: red;
+      display: flex;
+      flex-grow: 1;
+      box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.31);
+    }
+
+    main{
+      margin-right: auto;
+      margin-left: auto;
+      width: 95vw;
+      display: flex;
+      flex-grow: 10;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    section{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;      
+    }
+
+    .card{
+      border-radius: 2px;
+      background-color: white;
+      font-size: 0.7em;
+      padding: 8px;
+      box-shadow: -11px 9px 5px -4px rgba(0,0,0,0.31);
+      border: 1px solid gainsboro;
+    }
+
+    table{
+      border-collapse: collapse; //removes the default table borders
+    }
+
+    thead, th{
+      background-color: blue;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    td {
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    tr:nth-child(even){
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    table img{
+      height: 100px;
+    }
+</style>
+
+<body>
+    <nav>
+      Amiibo App
+    </nav>
+    <main>
+        <section class="card">
+
+        </section>
+         
+        <table class="card">
+           <thead>
+              <tr>
+               <th>Name</th>
+               <th>Series</th>
+               <th>Image</th>
+               <th>Release</th>
+             </tr>
+           </thead>
+           <tbody>
+              <tr>
+               <td>Mario</td>
+               <td>Super Mario</td>
+               <td>
+                 <img src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_00000000-00000002.png">
+               </td>
+               <td>
+                 2014-11-21
+               </td>
+             </tr>
+           </tbody>
+         </table>
+     </main>
+    
+  </body>
+  </html>
