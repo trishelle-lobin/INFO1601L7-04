@@ -135,40 +135,38 @@
 
   <script>
 
-    function drawTable(records){
-      console.log('hello', records);
-      let html='';
-      let result = document.querySelector('#result');
+function drawTable(records){
+  
+  let result = document.querySelector('#result'); //get render target
+  
+  //build html string based on data
+  let html='';
 
-      let count = 0;
-      
-      for(let rec of records){
-        html+=`<tr>
-         <td>${rec.character}</td>
-         <td>${rec.gameSeries}</td>
-         <td>
-           <img src="${rec.image}">
-         </td>
-         <td>
-           ${rec.release.na}
-         </td>
-       </tr>`;
-        count++;
-        if (count > 100) break;
-      }
+  for(let rec of records){
+   //interpolate data into template
+    html+=`<tr>
+     <td>${rec.character}</td>
+     <td>${rec.gameSeries}</td>
+     <td>
+       <img src="${rec.image}">
+     </td>
+     <td>
+       ${rec.release.na}
+     </td>
+   </tr>`;
+  }
+  //add html string to the DOM
+  result.innerHTML = html;
+}
 
-      result.innerHTML = html;
-    
-    }
+async function getData(){
+  const response = await fetch('https:weblabs.web.app/data/amiibo.json');
+  const data = await response.json();
+  drawTable(data.amiibo.slice(0, 100)); 
+  //slice method is used to use the first 100 records
+}
 
-    let state = [];
-
-    async function getData(){
-      const response = await fetch('https://amiiboapi.com/api/amiibo/');
-      const data = await response.json();
-      return data.amiibo.slice(0, 100);//gets first 100 items (too much data)
-    }
-
+getData();
     async function showAllGames(){
         state = await getData();
         drawTable(state);
